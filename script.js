@@ -2,6 +2,11 @@ const sheetUrls = [
   'https://docs.google.com/spreadsheets/d/1K_NeJM0b0Qk9SwMR-0-a27Xk2HXBo7yzuythjQH4LMY/edit?usp=sharing',
   'https://docs.google.com/spreadsheets/d/1K_NeJM0b0Qk9SwMR-0-a27Xk2HXBo7yzuythjQH4LMY/edit?usp=sharing'
 ];
+const header = document.createElement('h1');
+header.innerText = 'Скуби-Ду';
+header.style.textAlign = 'center';
+header.style.marginBottom = '20px';
+document.body.insertBefore(header, document.getElementById('slider-content'));
 
 let currentIndex = 0;
 let slides = [];
@@ -66,5 +71,6 @@ document.querySelector('.next').addEventListener('click', () => {
 //     showSlide((currentIndex + 1) % slides.length);
 //   }
 // }, 10000);
+
 
 loadAllSheets();
