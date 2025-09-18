@@ -1,3 +1,7 @@
+
+<header class="site-header">
+  Скуби-Ду
+</header>
 body {
   margin: 0;
   padding: 0;
@@ -157,6 +161,7 @@ body {
 body {
   padding-top: 80px; /* или больше, в зависимости от высоты шапки */
 }
+
 
 
 
