@@ -12,7 +12,7 @@ body {
 }
 .slider {
   position: relative;
-  width: 80%;
+  width: 100%;
   max-width: 900px;
   overflow: hidden;
 }
@@ -21,7 +21,7 @@ body {
   width: 100%;
   border-collapse: collapse;
   background: rgba(20,30,60,0.9);
-  margin-top: 60px; /* измените по необходимости */
+  margin-top: 20px; /* измените по необходимости */
 }
 .slider th, .slider td {
   border: 1px solid #446;
@@ -157,6 +157,7 @@ body {
 body {
   padding-top: 80px; /* или больше, в зависимости от высоты шапки */
 }
+
 
 
 
