@@ -67,9 +67,5 @@ document.querySelector('.next').addEventListener('click', () => {
 //   }
 // }, 10000);
 
-const header = document.createElement('h1');
-header.innerText = 'Скуби-Ду';
-header.style.textAlign = 'center';
-header.style.marginBottom = '20px';
-document.body.insertBefore(header, document.getElementById('slider-content'));
+
 loadAllSheets();
