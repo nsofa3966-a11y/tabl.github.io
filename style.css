@@ -111,7 +111,7 @@ body {
 
 .slide {
   position: absolute;
-  top: 0;
+  top: 20px;
   left: 0;
   width: 100%;
   opacity: 0;
@@ -138,3 +138,4 @@ body {
   font-size: 1em;
 
 }
+
