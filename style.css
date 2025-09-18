@@ -1,10 +1,9 @@
-
 body {
   margin: 0;
   padding: 0;
   height: 100%;
   width: 100%;
-  background: #30D5C8 ; /* заменено с #0b1020 на темно-берюзовый */
+  background: #006666; /* заменено с #0b1020 на темно-берюзовый */
   color: #fff;
   font-family: sans-serif;
   display: flex;
@@ -158,6 +157,7 @@ body {
 body {
   padding-top: 80px; /* или больше, в зависимости от высоты шапки */
 }
+
 
 
 
