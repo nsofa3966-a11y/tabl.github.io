@@ -138,5 +138,28 @@ body {
   font-size: 1em;
 
 }
+<header class="site-header">
+  Скуби-Ду
+</header>/* Стиль для шапки сайта */
+
+.site-header {
+  width: 100%;
+  padding: 20px 0;
+  background: linear-gradient(135deg, #334, #556);
+  color: #ffd700; /* золотистый цвет для текста */
+  font-size: 2em;
+  text-align: center;
+  font-family: sans-serif;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  position: fixed; /* чтобы шапка оставалась видимой при прокрутке */
+  top: 0;
+  left: 0;
+  z-index: 10; /* чтобы шапка была поверх остальных элементов */
+}
+
+/* Добавьте отступ для тела страницы, чтобы не закрывать содержимое */
+body {
+  padding-top: 80px; /* или больше, в зависимости от высоты шапки */
+}
 
 
