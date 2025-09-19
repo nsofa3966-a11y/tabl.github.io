@@ -1,6 +1,6 @@
 const sheetUrls = [
-  'https://docs.google.com/spreadsheets/d/e/2PACX-1vTC1dGgA54hZEK2GKMnBdKLLy6IClu2kZohTAlxeQq6WR0lvAMTd0XOmOwDi4OQCFgh9GvEi2A-mzXN/pubhtml',
-  'https://docs.google.com/spreadsheets/d/e/2PACX-1vTC1dGgA54hZEK2GKMnBdKLLy6IClu2kZohTAlxeQq6WR0lvAMTd0XOmOwDi4OQCFgh9GvEi2A-mzXN/pubhtml'
+  '<iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTC1dGgA54hZEK2GKMnBdKLLy6IClu2kZohTAlxeQq6WR0lvAMTd0XOmOwDi4OQCFgh9GvEi2A-mzXN/pubhtml?widget=true&amp;headers=false"></iframe>',
+  '<iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTC1dGgA54hZEK2GKMnBdKLLy6IClu2kZohTAlxeQq6WR0lvAMTd0XOmOwDi4OQCFgh9GvEi2A-mzXN/pubhtml?widget=true&amp;headers=false"></iframe>'
 ];
 
 let currentIndex = 0;
@@ -70,3 +70,4 @@ document.querySelector('.next').addEventListener('click', () => {
 
 
 loadAllSheets();
+
