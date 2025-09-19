@@ -1,6 +1,6 @@
 const sheetUrls = [
-  'https://docs.google.com/spreadsheets/d/1K_NeJM0b0Qk9SwMR-0-a27Xk2HXBo7yzuythjQH4LMY/edit?usp=sharing',
-  'https://docs.google.com/spreadsheets/d/1K_NeJM0b0Qk9SwMR-0-a27Xk2HXBo7yzuythjQH4LMY/edit?usp=sharing'
+  'https://docs.google.com/spreadsheets/d/e/2PACX-1vTC1dGgA54hZEK2GKMnBdKLLy6IClu2kZohTAlxeQq6WR0lvAMTd0XOmOwDi4OQCFgh9GvEi2A-mzXN/pubhtml',
+  'https://docs.google.com/spreadsheets/d/e/2PACX-1vTC1dGgA54hZEK2GKMnBdKLLy6IClu2kZohTAlxeQq6WR0lvAMTd0XOmOwDi4OQCFgh9GvEi2A-mzXN/pubhtml'
 ];
 
 let currentIndex = 0;
@@ -66,6 +66,7 @@ document.querySelector('.next').addEventListener('click', () => {
 //     showSlide((currentIndex + 1) % slides.length);
 //   }
 // }, 10000);
+
 
 
 loadAllSheets();
