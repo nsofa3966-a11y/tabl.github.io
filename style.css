@@ -1,32 +1,70 @@
-* Кнопки навигации */
-.nav {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(0,0,0,0.5);
-  border: none;
-  color: white;
-  font-size: 2em;
-  padding: 10px;
-  cursor: pointer;
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  background: #30D5C8; /* Бирюзовый фон для всего сайта */
+  color: #000; /* Черный цвет текста */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: sans-serif;
+  padding-top: 10%;
 }
 
-.nav.prev {
-  left: 10px;
+.slider {
+  position: relative;
+  width: 80%;
+  max-width: 900px;
+  overflow: hidden;
+  border-radius: 20px;
+  min-height: 250px;
 }
 
-.nav.next {
-  right: 10px;
+.slider table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid #000;
 }
+
+.slider th, .slider td {
+  border: 1px solid #000;
+  padding: 8px 12px;
+  text-align: center;
+}
+
+.slider th {
+  background: #30D5C8; /* Бирюзовый фон для заголовков */
+  font-size: 1.1em;
+  color: #000; /* Черный текст для заголовков */
+}
+
+.slider td {
+  background: #fff; /* Белый фон для ячеек */
+  font-size: 1em;
+  color: #000; /* Черный текст для ячеек */
+}
+
+/* Анимация плавной смены */
+.slide {
+  display: none;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.slide.active {
+  display: block;
+  opacity: 1;
+}
+
 .leader-card {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: linear-gradient(135deg, #223, #334);
-  border: 2px solid #446;
-  border-radius: 16px;
+  background: linear-gradient(135deg, #30D5C8, #30D5C8); /* Бирюзовый градиент */
+  border-radius: 20px;
   padding: 20px;
-  color: #fff;
+  color: #000; /* Черный текст */
   box-shadow: 0 0 20px rgba(0,0,0,0.5);
   max-width: 400px;
   margin: 0 auto;
@@ -35,52 +73,36 @@
 .leader-card h2 {
   margin: 0;
   font-size: 1.5em;
-  color: #ffd700;
+  color: #000;
 }
 
 .leader-card p {
   margin: 5px 0;
   font-size: 1.1em;
+  color: #000;
 }
 
 .leader-card .score {
   font-size: 1.3em;
   font-weight: bold;
-  color: #0f0;
-}
-.slider {
-  position: relative;
-  width: 80%;
-  max-width: 900px;
-  overflow: hidden;
-  min-height: 250px; /* чтобы карточка и таблица не дергали слайдер */
+  color: #000;
 }
 
-.slide {
-  position: absolute;
-  top: 0;
-  left: 0;
+/* Для таблицы с 4 колонками */
+.slider table {
   width: 100%;
-  opacity: 0;
-  transition: opacity 1s ease;
-  pointer-events: none; /* чтобы скрытые слайды не мешали */
 }
 
-.slide.active {
-  opacity: 1;
-  pointer-events: auto;
+.slider tr {
+  display: flex;
+  flex-wrap: wrap;
 }
 
-/* Кнопка паузы */
-.pause-btn {
-  position: absolute;
-  bottom: 10px;
-  right: 10px;
-  background: rgba(0,0,0,0.5);
-  color: #fff;
-  border: none;
-  padding: 8px 12px;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 1em;
+.slider th, .slider td {
+  flex: 1 1 25%; /* Равномерное распределение на 4 колонки */
+}
+
+
+h2 {
+  margin-bottom: 5%;
 }
