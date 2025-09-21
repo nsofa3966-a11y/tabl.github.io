@@ -61,7 +61,7 @@ header h1 {
 }
 
 .slider th {
- background: #00B8A3; /* Темно-бирюзовый цвет для шапки */
+ background: #30D5C8; /* Темно-бирюзовый цвет для шапки */
  font-size: 1.2em;
  color: #000; /* Черный текст в шапке */
 }
@@ -82,19 +82,6 @@ header h1 {
 .slide.active {
  display: block;
  opacity: 1;
-}
-
-/* Кнопки навигации */
-.nav {
- position: absolute;
- top: 50%;
- transform: translateY(-50%);
- background: rgba(0,0,0,0.5);
- border-radius: 20px;
- color: #fff;
- font-size: 2em;
- padding: 10px;
- cursor: pointer;
 }
 
 .nav.prev {
@@ -143,3 +130,4 @@ header h1 {
  }
  
  .slider table {
+
