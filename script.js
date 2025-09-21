@@ -1,34 +1,33 @@
 const sheetUrls = [
-  'https://docs.google.com/spreadsheets/d/1K_NeJM0b0Qk9SwMR-0-a27Xk2HXBo7yzuythjQH4LMY/edit?usp=sharing/export?format=csv',
-  'https://docs.google.com/spreadsheets/d/1K_NeJM0b0Qk9SwMR-0-a27Xk2HXBo7yzuythjQH4LMY/edit?usp=sharing/export?format=csv'
+  'https://docs.google.com/spreadsheets/d/1K_NeJM0b0Qk9SwMR-0-a27Xk2HXBo7yzuythjQH4LMY/export?format=csv',
+  'https://docs.google.com/spreadsheets/d/1K_NeJM0b0Qk9SwMR-0-a27Xk2HXBo7yzuythjQH4LMY/export?format=csv'
 ];
 
 let currentIndex = 0;
 let slides = [];
 
-// Функция для загрузки всех таблиц
 async function loadAllSheets() {
   const container = document.createElement('div');
   container.classList.add('slides-container');
   
-  // Создаем стили для слайдера
   const styles = `
   .slides-container {
     position: relative;
-    width: 600px;
-    height: 400px;
-    margin: 50px auto;
+    width: 100%;
+    max-width: 800px;
+    margin: 20px auto;
+    overflow: auto;
   }
   
   .slide {
-    position: absolute;
+    position: relative;
     width: 100%;
-    height: 100%;
     padding: 15px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.3);
     display: none;
     background-color: #fff;
+    overflow: auto;
   }
   
   .slide.active {
@@ -37,10 +36,12 @@ async function loadAllSheets() {
   
   .csv-content {
     font-family: monospace;
-    white-space: pre-wrap;
+    white-space: pre;
     word-break: break-all;
     line-height: 1.5;
     color: #333;
+    padding: 10px;
+    border: 1px solid #ddd;
   }
   
   .controls {
@@ -64,12 +65,11 @@ async function loadAllSheets() {
   style.innerHTML = styles;
   document.head.appendChild(style);
   
-  // Загружаем каждую таблицу
   for (let url of sheetUrls) {
     const slide = document.createElement('div');
     slide.classList.add('slide');
     
-    const content = document.createElement('div');
+    const content = document.createElement('pre');
     content.classList.add('csv-content');
     
     try {
@@ -85,10 +85,8 @@ async function loadAllSheets() {
     slides.push(slide);
   }
   
-  // Добавляем контейнер в body
   document.body.appendChild(container);
   
-  // Создаем кнопки управления
   const controls = document.createElement('div');
   controls.classList.add('controls');
   
@@ -104,7 +102,6 @@ async function loadAllSheets() {
   controls.appendChild(nextButton);
   document.body.appendChild(controls);
   
-  // Показываем первый слайд
   showSlide(0);
 }
 
@@ -124,7 +121,5 @@ document.querySelector('.prev').addEventListener('click', () => {
   }
 });
 
-document.querySelector('.next').addEventListener('click',
-// Запуск при загрузке страницы
-document.addEventListener('DOMContentLoaded', init);
-
+document.querySelector('.next').addEventListener('click', () => {
+  if (slides.length > 0) {
