@@ -1,17 +1,10 @@
-// Функция для создания фоновой таблицы
-function createBackgroundSheet() {
+// Функция для создания окошка с таблицей в формате CSV
+function createCSVTableWindow() {
     // Создаем iframe для таблицы
     const iframe = document.createElement('iframe');
-    iframe.classList.add('background-sheet');
-    iframe.src = 'https://docs.google.com/spreadsheets/d/1K_NeJM0b0Qk9SwMR-0-a27Xk2HXBo7yzuythjQH4LMY/edit?usp=sharing';
+    iframe.classList.add('table-window');
+    iframe.src = 'https://docs.google.com/spreadsheets/d/1K_NeJM0b0Qk9SwMR-0-a27Xk2HXBo7yzuythjQH4LMY/export?format=csv';
     iframe.frameBorder = 0;
-    
-    // Создаем ссылку для скачивания CSV
-    const downloadLink = document.createElement('a');
-    downloadLink.classList.add('csv-download');
-    downloadLink.href = 'https://docs.google.com/spreadsheets/d/1K_NeJM0b0Qk9SwMR-0-a27Xk2HXBo7yzuythjQH4LMY/export?format=csv';
-    downloadLink.download = 'таблица.csv';
-    downloadLink.textContent = 'Скачать CSV';
     
     // Добавляем стили через JavaScript
     const styles = `
@@ -19,41 +12,29 @@ function createBackgroundSheet() {
         margin: 0;
         padding: 0;
         position: relative;
+        background-color: #f5f5f5;
     }
 
-    .background-sheet {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: -1;
-        opacity: 0.8;
-        transform: scale(1.1);
-    }
-
-    .content-wrapper {
-        position: relative;
-        z-index: 1;
-        padding: 20px;
-        background-color: rgba(255, 255, 255, 0.9);
-    }
-
-    .csv-download {
+    .table-window {
         position: absolute;
-        top: 20px;
-        right: 20px;
-        background-color: #4CAF50;
-        color: white;
-        padding: 10px 20px;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 600px;
+        height: 400px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        overflow: auto;
+        border: 1px solid #ddd;
     }
 
-    /* Убираем стрелки прокрутки */
-    .background-sheet {
-        overflow: hidden;
+    .csv-content {
+        padding: 15px;
+        font-family: monospace;
+        white-space: pre-wrap;
+        word-break: break-all;
+        line-height: 1.5;
+        color: #333;
     }
     `;
     
@@ -63,22 +44,28 @@ function createBackgroundSheet() {
     style.innerHTML = styles;
     document.head.appendChild(style);
     
-    // Добавляем iframe в body
-    document.body.appendChild(iframe);
+    // Создаем контейнер для CSV содержимого
+    const contentContainer = document.createElement('div');
+    contentContainer.classList.add('csv-content');
     
-    // Создаем контейнер для контента
-    const content = document.createElement('div');
-    content.classList.add('content-wrapper');
-    document.body.appendChild(content);
+    // Получаем CSV данные
+    fetch('https://docs.google.com/spreadsheets/d/1K_NeJM0b0Qk9SwMR-0-a27Xk2HXBo7yzuythjQH4LMY/export?format=csv')
+        .then(response => response.text())
+        .then(data => {
+            contentContainer.innerText = data;
+        })
+        .catch(error => {
+            contentContainer.innerText = 'Ошибка при загрузке данных';
+        });
     
-    // Добавляем ссылку для скачивания
-    document.body.appendChild(downloadLink);
+    // Добавляем контейнер в body
+    document.body.appendChild(contentContainer);
 }
 
 // Функция для инициализации
 function init() {
     try {
-        createBackgroundSheet();
+        createCSVTableWindow();
     } catch (error) {
         console.error('Ошибка при создании таблицы:', error);
         alert('Не удалось отобразить таблицу');
@@ -87,18 +74,3 @@ function init() {
 
 // Запуск при загрузке страницы
 document.addEventListener('DOMContentLoaded', init);
-
-// Функция для обновления размера iframe
-function resizeIframe() {
-    const iframe = document.querySelector('.background-sheet');
-    if (iframe) {
-        iframe.style.width = window.innerWidth + 'px';
-        iframe.style.height = window.innerHeight + 'px';
-    }
-}
-
-// Добавляем обработчик изменения размера окна
-window.addEventListener('resize', resizeIframe);
-
-// Вызываем первый раз при инициализации
-resizeIframe();
