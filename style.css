@@ -14,7 +14,7 @@ body {
 
 /* Новая секция для шапки сайта */
 header {
- background: #007FFF; /* Лазурный цвет */
+ background: #00CED1; /* Лазурный цвет */
  width: 100%;
  padding: 20px 0;
  text-align: center;
@@ -61,7 +61,7 @@ header h1 {
 }
 
 .slider th {
- background: #30D5C8; /* Темно-бирюзовый цвет для шапки */
+ background: #00CED1; /* Темно-бирюзовый цвет для шапки */
  font-size: 1.2em;
  color: #000; /* Черный текст в шапке */
 }
@@ -130,4 +130,5 @@ header h1 {
  }
  
  .slider table {
+
 
