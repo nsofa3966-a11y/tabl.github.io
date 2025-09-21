@@ -1,12 +1,13 @@
 // Функция для скачивания CSV файла
-function downloadGoogleSheetAsCSV(sheetId, fileName = 'data.csv') {
-    // Формируем URL для экспорта
-    const exportUrl = `https://docs.google.com/spreadsheets/d/1K_NeJM0b0Qk9SwMR-0-a27Xk2HXBo7yzuythjQH4LMY/edit?usp=sharing`;
+function downloadGoogleSheetAsCSV() {
+    // Ваш URL таблицы Google Sheets
+    const sheetId = '1K_NeJM0b0Qk9SwMR-0-a27Xk2HXBo7yzuythjQH4LMY';
+    const exportUrl = `https://docs.google.com/spreadsheets/d/${sheetId}/export?format=csv`;
     
     // Создаем элемент ссылки
     const link = document.createElement('a');
     link.href = exportUrl;
-    link.download = fileName;
+    link.download = 'данные_таблицы.csv';
     link.style.display = 'none'; // Скрываем ссылку
     
     // Добавляем ссылку в документ
@@ -26,17 +27,12 @@ function downloadGoogleSheetAsCSV(sheetId, fileName = 'data.csv') {
     }
 }
 
-// Пример использования
+// Пример использования с HTML кнопкой
 function init() {
-    // Ваш ID таблицы Google Sheets
-    const sheetId = 'ВАШ_ID_ТАБЛИЦЫ';
-    
     // Добавляем обработчик события к кнопке
     const downloadButton = document.querySelector('.download-button');
     if (downloadButton) {
-        downloadButton.addEventListener('click', () => {
-            downloadGoogleSheetAsCSV(sheetId, 'данные_таблицы.csv');
-        });
+        downloadButton.addEventListener('click', downloadGoogleSheetAsCSV);
     } else {
         console.warn('Кнопка скачивания не найдена');
     }
@@ -45,14 +41,13 @@ function init() {
 // Инициализация при загрузке страницы
 document.addEventListener('DOMContentLoaded', init);
 
-// Если нужно использовать без HTML кнопки
-function downloadOnPageLoad() {
-    const sheetId = 'ВАШ_ID_ТАБЛИЦЫ';
-    downloadGoogleSheetAsCSV(sheetId, 'автоматический_экспорт.csv');
+// Если нужно автоматическое скачивание при загрузке страницы
+function autoDownload() {
+    downloadGoogleSheetAsCSV();
 }
 
-// Раскомментируйте строку ниже, если хотите автоматическое скачивание при загрузке
-// downloadOnPageLoad();
+// Раскомментируйте строку ниже для автоматического скачивания
+// autoDownload();
 
 
 
