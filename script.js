@@ -1,6 +1,6 @@
 const sheetUrls = [
-  'https://docs.google.com/spreadsheets/d/e/2PACX-1vTBc6F7PeogNf_R0i_CvNAuKsDAugTAej-etqTmKqg9CU2u16f7DIDYhSvf4hRTmAHqXttKvP9C_7Re/pub?output=tsv'
-  // 2-й слайд: лидер дня
+  'https://docs.google.com/spreadsheets/d/e/2PACX-1vTBc6F7PeogNf_R0i_CvNAuKsDAugTAej-etqTmKqg9CU2u16f7DIDYhSvf4hRTmAHqXttKvP9C_7Re/pub?output=tsv',
+  'https://docs.google.com/spreadsheets/d/e/2PACX-1vTC1dGgA54hZEK2GKMnBdKLLy6IClu2kZohTAlxeQq6WR0lvAMTd0XOmOwDi4OQCFgh9GvEi2A-mzXN/pub?output=xlsx'
 ];
 
 let currentIndex = 0;
@@ -31,19 +31,6 @@ async function loadAllSheets() {
     slides.push(slide);
   }
 
-  // Добавляем новый слайд с iframe
-  const iframeSlide = document.createElement('div');
-  iframeSlide.classList.add('slide');
-  
-  const iframe = document.createElement('iframe');
-  iframe.src = "https://docs.google.com/spreadsheets/d/e/2PACX-1vTC1dGgA54hZEK2GKMnBdKLLy6IClu2kZohTAlxeQq6WR0lvAMTd0XOmOwDi4OQCFgh9GvEi2A-mzXN/pubhtml?gid=0&single=true&widget=true&headers=false";
-  iframe.style.width = '100%';
-  iframe.style.height = '600px';
-  
-  iframeSlide.appendChild(iframe);
-  container.appendChild(iframeSlide);
-  slides.push(iframeSlide);
-
   if (slides.length > 0) {
     showSlide(0);
   }
@@ -53,14 +40,28 @@ async function loadCSV(url) {
   try {
     const res = await fetch(url + '&t=' + Date.now());
     if (!res.ok) throw new Error('HTTP ' + res.status);
-    const text = await res.text();
-    const rows = text.trim().split(/\r?\n/);
-    return rows.map(r => r.split(/,|;|\t/));
+    
+    // Определяем формат данных
+    if (url.includes('output=xlsx')) {
+      // Для XLSX используем специальный парсер
+      const blob = await res.blob();
+      const workbook = XLSX.read(blob, { type: 'binary' });
+      const sheetName = workbook.SheetNames[0];
+      const worksheet = workbook.Sheets[sheetName];
+      return XLSX.utils.sheet_to_json(worksheet, { header: 1 });
+    } else {
+      // Для TSV/CSV
+      const text = await res.text();
+      const rows = text.trim().split(/\r?\n/);
+      return rows.map(r => r.split(/,|;|\t/));
+    }
   } catch (e) {
     console.error(e);
     return [['Ошибка загрузки']];
   }
 }
+
+// Остальные функции остаются без изменений
 
 function renderTable(data) {
   const tbl = document.createElement('table');
@@ -77,17 +78,14 @@ function renderTable(data) {
 }
 
 function renderLeaderCard(data) {
-  // предполагаем, что заголовки в первой строке
   const headers = data[0];
   const rows = data.slice(1);
 
-  // ищем колонку "Очки" (или "Score")
   const scoreIndex = headers.findIndex(h => /очк|score/i.test(h));
   if (scoreIndex === -1) {
     return document.createTextNode("Не найдена колонка 'Очки'");
   }
 
-  // находим лидера
   let leader = rows[0];
   let maxScore = parseFloat(rows[0][scoreIndex]) || 0;
 
@@ -99,10 +97,8 @@ function renderLeaderCard(data) {
     }
   }
 
-  // создаём карточку
   const card = document.createElement('div');
   card.classList.add('leader-card');
 
-  const nameIndex = headers.findIndex(h
-
-
+  const nameIndex = headers.findIndex(h => /имя|name/i.test(h));
+  const name = nameIndex !== -1 ? leader[nameIndex]
