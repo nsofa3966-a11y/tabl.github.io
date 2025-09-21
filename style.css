@@ -14,17 +14,19 @@ body {
 
 .slider {
   position: relative;
-  width: 80%;
-  max-width: 900px;
+  width: 95%; /* Увеличили ширину слайдера */
+  max-width: 1400px; /* Максимальный размер */
   overflow: hidden;
   border-radius: 20px;
   min-height: 250px;
+  margin: 0 auto; /* Центрирование */
 }
 
 .slider table {
   width: 100%;
   border-collapse: collapse;
   border: 1px solid #000;
+  margin: 20px; /* Отступы вокруг таблицы */
 }
 
 .slider th, .slider td {
@@ -66,7 +68,7 @@ body {
   padding: 20px;
   color: #000; /* Черный текст */
   box-shadow: 0 0 20px rgba(0,0,0,0.5);
-  max-width: 400px;
+  max-width: 90%; /* Уменьшили максимальную ширину */
   margin: 0 auto;
 }
 
@@ -89,10 +91,6 @@ body {
 }
 
 /* Для таблицы с 4 колонками */
-.slider table {
-  width: 100%;
-}
-
 .slider tr {
   display: flex;
   flex-wrap: wrap;
@@ -102,7 +100,3 @@ body {
   flex: 1 1 25%; /* Равномерное распределение на 4 колонки */
 }
 
-
-h2 {
-  margin-bottom: 5%;
-}
