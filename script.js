@@ -1,5 +1,5 @@
 const sheetUrls = [
-'https://docs.google.com/spreadsheets/d/e/2PACX-1vTBc6F7PeogNf_R0i_CvNAuKsDAugTAej-etqTmKqg9CU2u16f7DIDYhSvf4hRTmAHqXttKvP9C_7Re/pub?output=tsv'
+'https://docs.google.com/spreadsheets/d/1K_NeJM0b0Qk9SwMR-0-a27Xk2HXBo7yzuythjQH4LMY/export?format=tsv'
   // 2-й слайд: лидер дня
 
 ];
@@ -140,3 +140,4 @@ setInterval(() => {
 }, 10000);
 
 loadAllSheets();
+
