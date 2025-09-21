@@ -1,5 +1,5 @@
 const sheetUrls = [
-  'https://docs.google.com/spreadsheets/d/1K_NeJM0b0Qk9SwMR-0-a27Xk2HXBo7yzuythjQH4LMY/export?format=tsv'
+  'https://docs.google.com/spreadsheets/d/1K_NeJM0b0Qk9SwMR-0-a27Xk2HXBo7yzuythjQH4LMY/pub?output=tsv'
   // можно добавить другие ссылки сюда
 ];
 
@@ -104,3 +104,4 @@ function renderLeaderCard(data) {
   card.appendChild(score
 
 Найти еще
+
