@@ -3,17 +3,14 @@ body {
   padding: 0;
   height: 100%;
   width: 100%;
-  /* background: #0b1020; */
   color: #fff;
-  flex-direction: column;
-  gap: 10px;
-  font-family: sans-serif;
   display: flex;
   justify-content: space-around;
   align-items: center;
-  background:no-repeat  url(https://tse4.mm.bing.net/th/id/OIP.MJUDnTcV9lpQ6jpLQa3yRAHaE7?r=0&rs=1&pid=ImgDetMain&o=7&rm=3);
+  background: no-repeat url(https://tse4.mm.bing.net/th/id/OIP.MJUDnTcV9lpQ6jpLQa3yRAHaE7?r=0&rs=1&pid=ImgDetMain&o=7&rm=3);
   background-size: 500%;
   padding-top: 10%;
+  font-family: sans-serif;
 }
 
 .slider {
@@ -22,30 +19,29 @@ body {
   max-width: 900px;
   overflow: hidden;
   border-radius: 20px;
-  height: 2000px;
+  height: auto;
 }
 
 .slider table {
   width: 100%;
   border-collapse: collapse;
-  /* background: rgba(20,30,60,0.9); */
 }
 
 .slider th, .slider td {
-  /* border: 1px solid #446; */
   padding: 8px 12px;
   text-align: center;
 }
 
 .slider th {
-  background: rgb(94, 94, 255);
+  background: #30D5C8; /* Бирюзовый цвет для шапки */
   font-size: 1.1em;
-
+  color: #fff;
 }
 
 .slider td {
-  background: #223;
+  background: #fff; /* Белый цвет для ячеек */
   font-size: 1em;
+  color: #333;
 }
 
 /* Анимация плавной смены */
@@ -60,32 +56,11 @@ body {
   opacity: 1;
 }
 
-/* Кнопки навигации */
-.nav {
-  position: absolute;
-  top: 5%;
-  transform: translateY(-50%);
-  background: rgba(0,0,0,0.5);
-  border-radius: 20px;
-  color: white;
-  font-size: 2em;
-  padding: 10px;
-  cursor: pointer;
-}
-
-.nav.prev {
-  left: 10px;
-}
-
-.nav.next {
-  right: 10px;
-}
 .leader-card {
   display: flex;
   flex-direction: column;
   align-items: center;
   background: linear-gradient(135deg, #223, #334);
-  /* border: 2px solid #446; */
   border-radius: 20px;
   padding: 20px;
   color: #fff;
@@ -110,12 +85,13 @@ body {
   font-weight: bold;
   color: #0f0;
 }
+
 .slider {
   position: relative;
   width: 900px;
   max-width: 900px;
   overflow: hidden;
-  min-height: 250px; /* чтобы карточка и таблица не дергали слайдер */
+  min-height: 250px;
 }
 
 .slide {
@@ -125,7 +101,7 @@ body {
   width: 100%;
   opacity: 0;
   transition: opacity 1s ease;
-  pointer-events: none; /* чтобы скрытые слайды не мешали */
+  pointer-events: none;
 }
 
 .slide.active {
@@ -133,23 +109,10 @@ body {
   pointer-events: auto;
 }
 
-/* Кнопка паузы */
-.pause-btn {
-  position: absolute;
-  bottom: 10px;
-  right: 10px;
-  background: rgba(0,0,0,0.5);
-  color: #fff;
-  border-radius: 20px;
-  padding: 8px 12px;
-  /* border-radius: 8px; */
-  cursor: pointer;
-  font-size: 1em;
-}
-
 h2 {
   margin-bottom: 5%;
 }
+
 
 
 
