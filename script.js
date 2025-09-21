@@ -3,7 +3,7 @@ function createBackgroundSheet() {
     // Создаем iframe для таблицы
     const iframe = document.createElement('iframe');
     iframe.classList.add('background-sheet');
-    iframe.src = 'https://docs.google.com/spreadsheets/d/1K_NeJM0b0Qk9SwMR-0-a27Xk2HXBo7yzuythjQH4LMY/edit?usp=sharing';
+    iframe.src = 'https://docs.google.com/spreadsheets/d/1K_NeJM0b0Qk9SwMR-0-a27Xk2HXBo7yzuythjQH4LMY/edit?usp=sharing=csv';
     iframe.frameBorder = 0;
     
     // Добавляем стили через JavaScript
@@ -75,3 +75,4 @@ window.addEventListener('resize', resizeIframe);
 
 // Вызываем первый раз при инициализации
 resizeIframe();
+
