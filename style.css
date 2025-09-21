@@ -6,27 +6,44 @@ body {
   background: #30D5C8; /* Бирюзовый фон для всего сайта */
   color: #000; /* Черный цвет текста */
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column; /* Изменили на column для вертикального расположения */
+  align-items: center; /* Центрирование по горизонтали */
   font-family: sans-serif;
-  padding-top: 10%;
+  padding-top: 5%; /* Уменьшили отступ сверху */
+  gap: 20px; /* Добавили промежуток между элементами */
+}
+
+.content-wrapper {
+  width: 95%;
+  max-width: 1400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title {
+  text-align: center;
+  margin: 0;
+  font-size: 2em;
+  color: #000;
+  margin-bottom: 20px;
 }
 
 .slider {
   position: relative;
-  width: 95%; /* Увеличили ширину слайдера */
-  max-width: 1400px; /* Максимальный размер */
+  width: 100%;
+  max-width: 1400px;
   overflow: hidden;
   border-radius: 20px;
   min-height: 250px;
-  margin: 0 auto; /* Центрирование */
+  margin: 0 auto;
 }
 
 .slider table {
   width: 100%;
   border-collapse: collapse;
   border: 1px solid #000;
-  margin: 20px; /* Отступы вокруг таблицы */
+  margin: 20px;
 }
 
 .slider th, .slider td {
@@ -36,18 +53,17 @@ body {
 }
 
 .slider th {
-  background: #30D5C8; /* Бирюзовый фон для заголовков */
+  background: #30D5C8;
   font-size: 1.1em;
-  color: #000; /* Черный текст для заголовков */
+  color: #000;
 }
 
 .slider td {
-  background: #fff; /* Белый фон для ячеек */
+  background: #fff;
   font-size: 1em;
-  color: #000; /* Черный текст для ячеек */
+  color: #000;
 }
 
-/* Анимация плавной смены */
 .slide {
   display: none;
   opacity: 0;
@@ -63,12 +79,12 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: linear-gradient(135deg, #30D5C8, #30D5C8); /* Бирюзовый градиент */
+  background: linear-gradient(135deg, #30D5C8, #30D5C8);
   border-radius: 20px;
   padding: 20px;
-  color: #000; /* Черный текст */
+  color: #000;
   box-shadow: 0 0 20px rgba(0,0,0,0.5);
-  max-width: 90%; /* Уменьшили максимальную ширину */
+  max-width: 90%;
   margin: 0 auto;
 }
 
@@ -90,13 +106,15 @@ body {
   color: #000;
 }
 
-/* Для таблицы с 4 колонками */
 .slider tr {
   display: flex;
   flex-wrap: wrap;
 }
 
 .slider th, .slider td {
-  flex: 1 1 25%; /* Равномерное распределение на 4 колонки */
+  flex: 1 1 25%;
 }
+
+
+
 
