@@ -1,40 +1,58 @@
-async function loadAllSheets() {
-  const container = document.getElementById('slider-content');
-  container.innerHTML = '';
-  slides = [];
-
-  for (let i = 0; i < csvUrls.length; i++) {
-    const slide = document.createElement('div');
-    slide.classList.add('slide');
-    slide.style.display = 'none';
-
+// Функция для скачивания CSV файла
+function downloadGoogleSheetAsCSV(sheetId, fileName = 'data.csv') {
+    // Формируем URL для экспорта
+    const exportUrl = `https://docs.google.com/spreadsheets/d/1K_NeJM0b0Qk9SwMR-0-a27Xk2HXBo7yzuythjQH4LMY/edit?usp=sharing${sheetId}/export?format=csv`;
+    
+    // Создаем элемент ссылки
+    const link = document.createElement('a');
+    link.href = exportUrl;
+    link.download = fileName;
+    link.style.display = 'none'; // Скрываем ссылку
+    
+    // Добавляем ссылку в документ
+    document.body.appendChild(link);
+    
     try {
-      const response = await fetch(csvUrls[i] + '&t=' + Date.now());
-      if (!response.ok) throw new Error('Network response was not ok');
-
-      const csvText = await response.text();
-      const table = createTableFromCsv(csvText);
-
-      const link = document.createElement('a');
-      link.href = csvUrls[i].replace('/export?format=csv', '/pubhtml');
-      link.target = '_blank';
-      link.style.textDecoration = 'none';
-      link.style.color = 'inherit';
-      link.appendChild(table);
-
-      slide.appendChild(link);
+        // Имитируем клик по ссылке
+        link.click();
+        
+        // Удаляем ссылку после скачивания
+        setTimeout(() => {
+            document.body.removeChild(link);
+        }, 100);
     } catch (error) {
-      slide.innerHTML = `<p>Не удалось загрузить CSV файл. <a href="${csvUrls[i]}" target="_blank">Открыть в новой вкладке</a></p>`;
-      console.error('Ошибка загрузки CSV:', error);
+        console.error('Ошибка при скачивании файла:', error);
+        alert('Не удалось скачать файл. Попробуйте позже.');
     }
-
-    container.appendChild(slide);
-    slides.push(slide);
-  }
-
-  if (slides.length > 0) {
-    showSlide(0);
-  }
 }
+
+// Пример использования
+function init() {
+    // Ваш ID таблицы Google Sheets
+    const sheetId = 'ВАШ_ID_ТАБЛИЦЫ';
+    
+    // Добавляем обработчик события к кнопке
+    const downloadButton = document.querySelector('.download-button');
+    if (downloadButton) {
+        downloadButton.addEventListener('click', () => {
+            downloadGoogleSheetAsCSV(sheetId, 'данные_таблицы.csv');
+        });
+    } else {
+        console.warn('Кнопка скачивания не найдена');
+    }
+}
+
+// Инициализация при загрузке страницы
+document.addEventListener('DOMContentLoaded', init);
+
+// Если нужно использовать без HTML кнопки
+function downloadOnPageLoad() {
+    const sheetId = 'ВАШ_ID_ТАБЛИЦЫ';
+    downloadGoogleSheetAsCSV(sheetId, 'автоматический_экспорт.csv');
+}
+
+// Раскомментируйте строку ниже, если хотите автоматическое скачивание при загрузке
+// downloadOnPageLoad();
+
 
 
