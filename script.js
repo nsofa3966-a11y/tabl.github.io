@@ -1,7 +1,7 @@
 // Функция для скачивания CSV файла
 function downloadGoogleSheetAsCSV(sheetId, fileName = 'data.csv') {
     // Формируем URL для экспорта
-    const exportUrl = `https://docs.google.com/spreadsheets/d/1K_NeJM0b0Qk9SwMR-0-a27Xk2HXBo7yzuythjQH4LMY/edit?usp=sharing${sheetId}/export?format=csv`;
+    const exportUrl = `https://docs.google.com/spreadsheets/d/1K_NeJM0b0Qk9SwMR-0-a27Xk2HXBo7yzuythjQH4LMY/edit?usp=sharing`;
     
     // Создаем элемент ссылки
     const link = document.createElement('a');
@@ -53,6 +53,7 @@ function downloadOnPageLoad() {
 
 // Раскомментируйте строку ниже, если хотите автоматическое скачивание при загрузке
 // downloadOnPageLoad();
+
 
 
 
