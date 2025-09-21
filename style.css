@@ -10,13 +10,29 @@ body {
  align-items: center;
  justify-content: center;
  font-family: sans-serif;
- padding-top: 5%;
+}
+
+/* Новая секция для шапки сайта */
+header {
+ background: #007FFF; /* Лазурный цвет */
+ width: 100%;
+ padding: 20px 0;
+ text-align: center;
+ box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+header h1 {
+ margin: 0;
+ font-size: 2.5em;
+ color: #fff;
+ font-weight: 600;
 }
 
 .container {
  width: 90%;
  max-width: 1200px;
  position: relative;
+ margin: 20px auto;
 }
 
 .slider {
@@ -28,6 +44,7 @@ body {
  min-height: 300px;
  background: rgba(0,0,0,0.1); /* Легкая тень для контраста */
  box-shadow: 0 0 20px rgba(0,0,0,0.3);
+ margin-top: 20px;
 }
 
 .slider table {
@@ -44,7 +61,7 @@ body {
 }
 
 .slider th {
- background: #8B4513; /* Темно-коричневая шапка */
+ background: #00B8A3; /* Темно-бирюзовый цвет для шапки */
  font-size: 1.2em;
  color: #000; /* Черный текст в шапке */
 }
@@ -126,20 +143,3 @@ body {
  }
  
  .slider table {
- font-size: 0.9em;
- }
- 
- .nav {
- font-size: 1.5em;
- }
-}
-
-@media (max-width: 480px) {
- .slider {
- padding: 10px;
- }
- 
- .slider table {
- font-size: 0.8em;
- }
-}
