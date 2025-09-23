@@ -1,26 +1,15 @@
 body {
   margin: 0;
-  padding: 20px;
-  min-height: 100vh;
-  position: relative;
-  overflow-x: hidden;
-
-  background: none;
-  background-image: url('цветочки.jpg');
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
-  background-attachment: fixed;
-
-  color: #FFD1DC;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  background: #0b1020;
+  color: #fff;
+  font-family: sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-
-/* Убираем текущие псевдоэлементы с фоном */
-/* body::before { ... } */
-/* body::after { ... } */
-
-/* При необходимости добавляем затемнение */
 body::before {
   content: '';
   position: fixed;
