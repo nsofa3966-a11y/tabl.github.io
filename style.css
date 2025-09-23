@@ -1,20 +1,34 @@
 body {
   margin: 0;
-  padding: 0;
-  height: 100%;
-  width: 100%;
-  /* background: #FFD1DC;  Удаляем этот цвет */
+  padding: 20px;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+
+  background: none;
   background-image: url('цветочки.jpg');
-  background-size: cover;
-  background-position: center center;
   background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  background-attachment: fixed;
+
   color: #FFD1DC;
-  font-family: sans-serif;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+/* Убираем текущие псевдоэлементы с фоном */
+/* body::before { ... } */
+/* body::after { ... } */
+
+/* При необходимости добавляем затемнение */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: -1;
+}
 
 .slider table {
   width: 100%;
