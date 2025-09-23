@@ -3,13 +3,18 @@ body {
   padding: 0;
   height: 100%;
   width: 100%;
-  background: #FFD1DC;
+  /* background: #FFD1DC;  Удаляем этот цвет */
+  background-image: url('цветочки.jpg');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
   color: #FFD1DC;
   font-family: sans-serif;
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
 
 .slider {
   position: relative;
