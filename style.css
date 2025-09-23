@@ -3,8 +3,8 @@ body {
   padding: 0;
   height: 100%;
   width: 100%;
-  background: #0b1020;
-  color: #fff;
+  background: #FFD1DC;
+  color: #FFD1DC;
   font-family: sans-serif;
   display: flex;
   justify-content: center;
@@ -44,7 +44,7 @@ body {
 }
 
 .slider th {
-  background: linear-gradient(135deg, #1a237e, #283593);
+  background: linear-gradient(135deg,#FFD1DC, #FFD1DC);
   color: #4fc3f7;
   padding: 15px 10px;
   text-align: center;
@@ -74,7 +74,7 @@ body {
   color: #e0f7fa;
   padding: 12px 10px;
   text-align: center;
-  border: 1px solid #37474f;
+  border: 1px solid #FFD1DC;
   font-size: 1em;
   transition: all 0.3s ease;
   position: relative;
@@ -136,8 +136,8 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: linear-gradient(135deg, #223, #334);
-  border: 2px solid #446;
+  background: linear-gradient(135deg,#FFD1DC,#FFD1DC);
+  border: 2px solid #FFD1DC;
   border-radius: 16px;
   padding: 20px;
   color: #fff;
@@ -191,7 +191,7 @@ body {
   bottom: 10px;
   right: 10px;
   background: rgba(0,0,0,0.5);
-  color: #fff;
+  color:#FFD1DC;
   border: none;
   padding: 8px 12px;
   border-radius: 8px;
