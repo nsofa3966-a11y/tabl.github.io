@@ -8,9 +8,9 @@
   <link rel="icon" href="цветочки.jpg">
   <style>
     body {
-      background: linear-gradient(135deg, #50C878 0%,#50C878 35%, #50C878 70%,#50C878 100%);
+      background: linear-gradient(135deg, #050720 0%, #0f1440 35%, #1a1252 70%, #050318 100%);
       background-attachment: fixed;
-      color: #50C878;
+      color: #e0f7fa;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       margin: 0;
       padding: 20px;
@@ -42,7 +42,7 @@
       width: 100%;
       height: 100%;
       background-image: 
-url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='50' cy='50' r='0.8' fill='%23ffffff' opacity='0.5'/%3E%3C/svg%3E"),
+        url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='50' cy='50' r='0.8' fill='%23ffffff' opacity='0.5'/%3E%3C/svg%3E"),
         url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='10' cy='10' r='0.3' fill='%23ffffff' opacity='0.2'/%3E%3C/svg%3E");
       background-size: 100px 100px, 20px 20px;
       pointer-events: none;
@@ -58,7 +58,7 @@ url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xm
       h1 {
     font-family: 'Orbitron', 'Arial', sans-serif;
     font-weight: 700;
-    color: #50C878;
+    color: #fff;
     text-align: center;
     
     letter-spacing: 2px;
@@ -193,8 +193,41 @@ url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xm
       max-width: 600px;
       margin: 0 auto;
     }
-   
-   
+    .image-blocks {
+      display: flex;
+      justify-content: space-around;
+      width: 100%;
+      margin: 40px 0;
+      flex-wrap: wrap;
+    }
+    
+    .image-block {
+      width: 250px;
+      margin: 15px;
+      background: rgba(20, 30, 60, 0.7);
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease;
+    }
+    
+    .image-block:hover {
+      transform: translateY(-5px);
+    }
+    
+    .image-block img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      border-bottom: 2px solid rgba(37, 0, 107, 0.5);
+    }
+    
+    .image-block p {
+      padding: 15px;
+      color: #fff;
+      text-align: center;
+      margin: 0;
+    }
     
      @media (max-width: 768px) {
       .slider {
@@ -206,7 +239,7 @@ url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xm
       .title h1 {
         font-size: 2rem;
       }
-    }
+    
   </style>
 </head>
 <body>
