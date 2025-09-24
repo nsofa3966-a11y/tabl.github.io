@@ -51,36 +51,7 @@
         }
 
         /* Остальные стили остаются без изменений */
-        h1 {
-            font-family: 'Orbitron', 'Arial', sans-serif;
-            font-weight: 700;
-            color: #fff;
-            text-align: center;
-            letter-spacing: 2px;
-            position: relative;
-            z-index: 2;
-            
-            background: linear-gradient(135deg, 
-                #4fc3f7 0%, 
-                #64ffda 25%, 
-                #82b1ff 50%, 
-                #d500f9 75%, 
-                #ff4081 100%);
-            
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            
-            text-shadow: 
-                0 0 10px rgba(79, 195, 247, 0.3),
-                0 0 20px rgba(100, 255, 218, 0.2),
-                0 0 30px rgba(130, 177, 255, 0.1),
-                2px 2px 4px rgba(0, 0, 0, 0.3);
-            
-            background-size: 200% 200%;
-            animation: cosmicFlow 12s ease infinite;
-        }
-
+        h
         /* Остальные CSS стили остаются без изменений */
         .decoration {
             position: absolute;
@@ -136,14 +107,33 @@ width: 100%;
 }
 
 .title h1 {
-font-size: 2.5rem;
-margin-bottom: 10px;
-text-shadow: 0 2px 10px rgba(0,0,0,0.5);
-position: static;
-width: auto;
-left: auto;
-bottom: auto;
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+  position: static;
+  width: auto;
+  left: auto;
+  bottom: auto;
+
+  /* Заменяем градиентный текст на сплошной бордовый цвет */
+  background: none !important;
+  -webkit-background-clip: unset !important;
+  -webkit-text-fill-color: unset !important;
+  color: #800020; /* бордовый цвет */
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
 }
+
+/* Добавляем стиль для подзаголовка */
+.subtitle {
+  font-size: 1.2rem;
+  color: #b03060; /* светлый бордовый оттенок */
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-weight: 500;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.4);
+}
+
 
 .title p {
 font-size: 1.2rem;
